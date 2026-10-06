@@ -1,0 +1,81 @@
+{
+  "query": "icalendar",
+  "search_url": "https://api.github.com/search/repositories?q=icalendar&sort=stars&order=desc&per_page=5",
+  "observed_utc": "2026-10-06T06:11:59.770604+00:00",
+  "sort": "stars descending",
+  "scope": "bounded GitHub repository search, top 10; not exhaustive global ranking",
+  "comparables": [
+    {
+      "full_name": "Kozea/Radicale",
+      "html_url": "https://github.com/Kozea/Radicale",
+      "stargazers_count": 5087,
+      "pushed_at": "2026-10-06T06:02:00Z",
+      "default_branch": "master",
+      "license": {
+        "key": "gpl-3.0",
+        "name": "GNU General Public License v3.0",
+        "spdx_id": "GPL-3.0",
+        "url": "https://api.github.com/licenses/gpl-3.0",
+        "node_id": "MDc6TGljZW5zZTk="
+      },
+      "description": "A simple CalDAV (calendar) and CardDAV (contact) server.",
+      "observed_commit": "d89862edbf8e6b451621d38205e45fe03e8f0868",
+      "observed_commit_date": "2026-10-06T06:14:51Z"
+    },
+    {
+      "full_name": "jkbrzt/rrule",
+      "html_url": "https://github.com/jkbrzt/rrule",
+      "stargazers_count": 3742,
+      "pushed_at": "2024-06-27T17:52:15Z",
+      "default_branch": "master",
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "description": "JavaScript library for working with recurrence rules for calendar dates as defined in the iCalendar RFC and more.",
+      "observed_commit": "9f2061febeeb363d03352efe33d30c33073a0242",
+      "observed_commit_date": "2023-11-10T20:05:10Z"
+    },
+    {
+      "full_name": "pimutils/khal",
+      "html_url": "https://github.com/pimutils/khal",
+      "stargazers_count": 3067,
+      "pushed_at": "2026-10-05T23:21:47Z",
+      "default_branch": "master",
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "description": ":calendar: CLI calendar application",
+      "observed_commit": "7fcd09973923cc69363916deeee2f44cacfd3083",
+      "observed_commit_date": "2026-09-23T16:31:31Z"
+    }
+  ],
+  "brief": {
+    "user": "People or scheduling administrators checking explicit appointment exports across calendars.",
+    "pain": "Different calendar exports can hide overlaps through timezones or duplicated events. Unsupported recurrence must not silently yield a clear report.",
+    "outcome": "Finds busy-event overlaps across explicit non-recurring UTC, IANA-zone and explicitly zoned all-day intervals.",
+    "command": "ical-conflict example.ics",
+    "module": "ical_conflict",
+    "fixtures": [
+      "example.ics"
+    ],
+    "comparables": [
+      "Kozea/Radicale",
+      "jkbrzt/rrule",
+      "pimutils/khal"
+    ],
+    "limits": "Explicit non-recurring VEVENT DTSTART/DTEND only. Recurrence fields, DURATION, floating timestamps and VTIMEZONE definitions rejected, including in cancelled events. IANA TZID uses the installed system tzdb; ambiguous/nonexistent local times reject. All-day DATE requires --date-zone. Missing end rejects instead of assuming a duration. Transparent/cancelled events skipped; tentative busy events included. Duplicate identical UID intervals across exports collapse; conflicting UID intervals reject. Requires unique UIDs per input. Limits: 50 files, 10 MB/file, 5000 combined unique events and 10000 conflict pairs. VALARM ignored. No server writes, calendar sync or full RFC 5545 implementation. Output includes UIDs and UTC overlap intervals, not summaries or paths.",
+    "discovery": "iCalendar and scheduling topics with UTC/timezone/all-day fixtures and explicit unsupported examples.",
+    "acceptance": "Honor exclusive ends and overlapping intervals, convert IANA zones, reject DST ambiguity/gaps and recurrence, unfold lines, skip free/cancelled events and deduplicate repeated exports without hiding conflicting UIDs.",
+    "alternative": "Radicale serves CalDAV/CardDAV; rrule expands recurrences; khal is a complete terminal calendar. Our narrower workflow is offline explicit-interval review. Users requiring recurrence should use a mature calendar stack; this MVP refuses it.",
+    "evidence": "Read all three docs/issues and rrule src/datetime.ts. Recurrence-count and calendar free/busy PRs illustrate complexity; none verifies a request for our exact checker. Demand is inferred."
+  },
+  "portfolio_comparison": "Compared with 138 existing repository descriptions/README briefs and with these five candidates. Archive preflight rejected as overlap with wheel-sentinel and portable-tree. No forks, product subdivisions or cosmetic variants counted. These five have different input formats and user tasks."
+}
